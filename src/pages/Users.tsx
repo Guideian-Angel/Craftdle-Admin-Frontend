@@ -31,7 +31,6 @@ export function Users() {
             })
             .catch((error) => console.error("Error:", error));
     }, []);
-    console.log(users)
 
     return (
         <div>
