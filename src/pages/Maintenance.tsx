@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Table } from "../components/table";
 import { Navbar } from "../components/Navbar";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_SERVER_BASE_URL;
 
 export function Maintenance() {
     const [maintenance, setMaintenance] = useState([]);

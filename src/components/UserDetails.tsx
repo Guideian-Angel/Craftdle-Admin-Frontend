@@ -6,7 +6,7 @@ interface UserDetailsProps {
     onClose: () => void;
 }
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_SERVER_BASE_URL;
 
 export function UserDetails({ userId, onClose }: UserDetailsProps) {
     const [userData, setUserData] = useState<any>(null);

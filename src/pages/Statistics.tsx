@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer
 import PlayedGamemodesChart from "../components/PlayedGamemodesChart";
 
 const COLORS = ["#00C49F", "#FF8042"];
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_SERVER_BASE_URL;
 
 export function Statistics() {
     const [stats, setStats] = useState<any>(null);

@@ -3,7 +3,7 @@ import { Table } from "../components/table";
 import { Navbar } from "../components/Navbar";
 import { IUpdateRights } from "../interfaces/updateRigths";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_SERVER_BASE_URL;
 
 export function Admins() {
     const [admins, setAdmins] = useState<{ id: number; username: string; rights: string[] }[]>([]);
