@@ -6,11 +6,13 @@ interface UserDetailsProps {
     onClose: () => void;
 }
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export function UserDetails({ userId, onClose }: UserDetailsProps) {
     const [userData, setUserData] = useState<any>(null);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/admin/user/${userId}`, {
+        fetch(`${API_BASE_URL}/user/${userId}`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${sessionStorage.getItem("token")}`,

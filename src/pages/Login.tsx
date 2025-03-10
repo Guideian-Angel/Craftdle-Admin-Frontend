@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
@@ -10,7 +12,7 @@ export function Login() {
 
     const handleLogin = async () => {
         try {
-            const response = await fetch("http://localhost:3000/admin/login", {
+            const response = await fetch(`${API_BASE_URL}/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ usernameOrEmail: email, password })
@@ -31,7 +33,7 @@ export function Login() {
     const handleVerify = async () => {
         try {
             console.log(sessionStorage.getItem("token"))
-            const response = await fetch("http://localhost:3000/admin/verifyAdmin", {
+            const response = await fetch(`${API_BASE_URL}/verifyAdmin`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

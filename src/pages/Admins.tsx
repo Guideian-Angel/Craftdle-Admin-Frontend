@@ -3,6 +3,8 @@ import { Table } from "../components/table";
 import { Navbar } from "../components/Navbar";
 import { IUpdateRights } from "../interfaces/updateRigths";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export function Admins() {
     const [admins, setAdmins] = useState<{ id: number; username: string; rights: string[] }[]>([]);
     const [userRights, setUserRights] = useState<string[]>([]);
@@ -13,7 +15,7 @@ export function Admins() {
         const storedRights = adminData ? JSON.parse(adminData)["rights"] || [] : [];
         setUserRights(storedRights);
 
-        fetch("http://localhost:3000/admin/admins", {
+        fetch(`${API_BASE_URL}/admins`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${sessionStorage.getItem("token")}`,
@@ -28,7 +30,7 @@ export function Admins() {
     }, []);
 
     const handleCheckboxChange = (adminId: number, updateData: IUpdateRights) => {
-        fetch(`http://localhost:3000/admin/admin/${adminId}`, {
+        fetch(`${API_BASE_URL}/admin/${adminId}`, {
             method: "PATCH",
             headers: {
                 "Authorization": `Bearer ${sessionStorage.getItem("token")}`,

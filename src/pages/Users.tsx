@@ -3,6 +3,8 @@ import { Table } from "../components/table";
 import { Navbar } from "../components/Navbar";
 import { UserDetails } from "../components/UserDetails";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export function Users() {
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState<number | null>(null);
@@ -18,7 +20,7 @@ export function Users() {
     console.log(sessionStorage.getItem("token"))
 
     useEffect(() => {
-        fetch("http://localhost:3000/admin/users", {
+        fetch(`${API_BASE_URL}/users`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${sessionStorage.getItem("token")}`,
