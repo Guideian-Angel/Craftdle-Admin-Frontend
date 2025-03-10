@@ -32,7 +32,7 @@ export function UserDetails({ userId, onClose }: UserDetailsProps) {
                 <button onClick={onClose} className="absolute top-2 right-2 text-xl">✖</button>
                 <h2 className="text-2xl font-bold mb-4">User Details</h2>
                 <p>Username: {userData.username}</p>
-                <p>Streak: {userData.streak.currentStreak ?? "0"}</p>
+                <p>Streak: {userData.streak ?? "0"}</p>
                 <p>Achievements: {userData.achievements.collected + "/" + userData.achievements.total}</p>
                 <p>Collection: {userData.collection.collected + "/" + userData.collection.total}</p>
                 <p>Registration Date: {new Date(userData.registration_date).toLocaleDateString()}</p>
