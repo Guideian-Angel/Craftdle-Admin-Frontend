@@ -61,16 +61,16 @@ export function Admins() {
     return (
         <div>
             <Navbar />
-            <div className="p-4">
-                <h2 className="text-xl font-bold text-white mb-4">Admins</h2>
+            <div>
+                <h2>Admins</h2>
                 <Table
                     columns={userRights.includes("modifyAdmins") ? ["Id", "Username", "Rights", "Modify"] : ["Id", "Username", "Rights"]}
                     data={admins.map(admin => ({
                         ...admin,
                         modify: userRights.includes("modifyAdmins") ? (
-                            <div className="flex gap-2">
+                            <div>
                                 {availableRights.map(right => (
-                                    <label key={right} className="flex items-center">
+                                    <label key={right}>
                                         <input
                                             type="checkbox"
                                             checked={admin.rights.includes(right)}
@@ -80,7 +80,7 @@ export function Admins() {
                                             )}
                                         />
 
-                                        <span className="ml-1 text-white">{right}</span>
+                                        <span>{right}</span>
                                     </label>
                                 ))}
                             </div>

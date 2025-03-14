@@ -25,8 +25,8 @@ export function Maintenance() {
     return (
         <div>
             <Navbar />
-            <div className="p-4">
-                <h2 className="text-xl font-bold text-white mb-4">Maintenance</h2>
+            <div>
+                <h2>Maintenance</h2>
                 <Table
                     columns={["Id", "Start", "End", "User"]}
                     data={maintenance}

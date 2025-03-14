@@ -22,7 +22,7 @@ export function Statistics() {
     }, []);
 
     if (!stats) {
-        return <p className="text-white">Loading...</p>;
+        return <p>Loading...</p>;
     }
 
     const solvedVsUnsolved = [
@@ -33,9 +33,9 @@ export function Statistics() {
     const registrationsData = Object.entries(stats.registrationsByDate).map(([date, count]) => ({ date, count }));
 
     return (
-        <div className="p-6 text-white">
+        <div>
             {/* Összesített statisztikák */}
-            <div className="grid grid-cols-4 gap-4 mb-8">
+            <div>
                 <StatCard title="Total Users" value={stats.numberOfUsers.registeredUsers} />
                 <StatCard title="Total Games Played" value={stats.numberOfGames} />
                 <StatCard title="Users Today" value={stats.numberOfActiveUsersToday} />
@@ -43,8 +43,8 @@ export function Statistics() {
             </div>
 
             {/* Kördiagram: Megoldott vs. Nem megoldott játékok */}
-            <div className="mb-8">
-                <h2 className="text-xl mb-4">Solved vs. Unsolved Games</h2>
+            <div>
+                <h2>Solved vs. Unsolved Games</h2>
                 <ResponsiveContainer width="100%" height={300}>
                     <PieChart>
                         <Pie data={solvedVsUnsolved} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} label>
@@ -58,14 +58,14 @@ export function Statistics() {
             </div>
 
             {/* Oszlopdiagram: Gamemode Statisztika */}
-            <div className="mb-8">
-                <h2 className="text-xl mb-4">Games Played by Gamemode</h2>
+            <div>
+                <h2>Games Played by Gamemode</h2>
                 <PlayedGamemodesChart rawData={stats.gamemodes} />
             </div>
 
             {/* Vonaldiagram: Regisztrációs statisztika */}
             <div>
-                <h2 className="text-xl mb-4">User Registrations Over Time</h2>
+                <h2>User Registrations Over Time</h2>
                 <ResponsiveContainer width="100%" height={300}>
                     <LineChart data={registrationsData}>
                         <XAxis dataKey="date" stroke="#fff" />
@@ -82,9 +82,9 @@ export function Statistics() {
 
 function StatCard({ title, value }: { title: string; value: number }) {
     return (
-        <div className="bg-gray-800 p-4 rounded-lg text-center shadow-md">
-            <h3 className="text-lg font-bold">{title}</h3>
-            <p className="text-2xl">{value}</p>
+        <div>
+            <h3>{title}</h3>
+            <p>{value}</p>
         </div>
     );
 }

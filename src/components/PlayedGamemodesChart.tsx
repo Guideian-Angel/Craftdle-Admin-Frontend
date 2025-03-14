@@ -12,7 +12,7 @@ type GamemodeColors = {
 
 export default function PlayedGamemodesChart({ rawData }: { rawData: any }) {
     if (!rawData || Object.keys(rawData).length === 0) {
-        return <p className="text-white">Nincsenek elérhető adatok</p>;
+        return <p>Nincsenek elérhető adatok</p>;
     }
 
     // 🔹 Adatok átalakítása a Recharts formátumára
