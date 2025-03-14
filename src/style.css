@@ -82,7 +82,7 @@ html, body, #root{
     align-items: center;
 }
 
-#login{
+.authForm{
     background-color: rgb(38, 38, 38);
     padding: 20px;
     gap: 20px;
@@ -96,14 +96,14 @@ input:-webkit-autofill:focus {
     transition: background-color 0s 600000s, color 0s 600000s !important;
 }
 
-#login input {
+.authForm input {
     background-color: rgb(19, 19, 19);
     color: var(--White);
     border: solid 3px transparent;
     padding: 5px;
 }
 
-#login input:focus {
+.authForm input:focus {
     border: rgb(81, 81, 81) solid 3px;
     border-radius: 5px;
     outline: none;
@@ -124,4 +124,89 @@ button:hover {
     border-right: 1vmin solid rgb(25, 56, 17);
     border-bottom: 1vmin solid rgb(19, 71, 13);
     border-left: 1vmin solid rgb(54, 95, 43);
+}
+
+.container {
+    height: 100dvh;
+    width: 100dvw;
+    position: relative;
+    background-color: rgb(56, 56, 56);
+    display: grid;
+    grid-template-rows: min-content auto;
+}
+
+#navbar > ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: rgb(38, 38, 38);
+    list-style: none;
+    margin: 0;
+}
+
+#navbar > ul > li > a{
+    color: var(--Green);
+    text-decoration: none;
+}
+
+.container > div{
+    padding: 20px;
+    overflow: auto;
+}
+
+.container table{
+    border-collapse: collapse;
+    border: black 3px solid;
+    margin: auto;
+    background-color: rgb(32, 32, 32);
+}
+
+.container table th, .container table td{
+    border: black 3px solid;
+    padding: 10px;
+    text-align: center;
+    width: min-content;
+}
+
+#userDetails{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(38, 38, 38);
+    padding: 20px;
+    border: black 3px solid;
+    border-radius: 20px;
+}
+
+#userDetails > div{
+    width: 70dvw;
+    height: 70dvh;
+    overflow: auto;
+}
+
+#statistics{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "basicStats gameSolveRateStats"
+    "gamesByGamemodeStats gamesByGamemodeStats"
+    "registrationStats registrationStats";
+}
+
+#basicStats{
+    grid-area: basicStats;
+}
+
+#solvedVsUnsolved{
+    grid-area: gameSolveRateStats;
+}
+
+#playedGamemodes{
+    grid-area: gamesByGamemodeStats;
+}
+
+#registrations{
+    grid-area: registrationStats;
 }

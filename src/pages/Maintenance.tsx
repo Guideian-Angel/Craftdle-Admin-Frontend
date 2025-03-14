@@ -23,7 +23,7 @@ export function Maintenance() {
     }, []);
 
     return (
-        <div>
+        <div className="container">
             <Navbar />
             <div>
                 <h2>Maintenance</h2>

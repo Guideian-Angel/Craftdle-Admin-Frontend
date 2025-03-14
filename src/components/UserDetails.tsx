@@ -27,9 +27,9 @@ export function UserDetails({ userId, onClose }: UserDetailsProps) {
     }, [userId]);
 
     return userData && !userData.error && (
-        <div>
+        <div id="userDetails">
+            <button onClick={onClose}>✖</button>
             <div>
-                <button onClick={onClose}>✖</button>
                 <h2>User Details</h2>
                 <p>Username: {userData.username}</p>
                 <p>Streak: {userData.streak ?? "0"}</p>

@@ -67,7 +67,7 @@ export function Login() {
     return (
         <div>
             {step === 1 ? (
-                <div id="login">
+                <div className="authForm">
                     <h2>Bejelentkezés</h2>
                     <input 
                         type="text" placeholder="Email" 
@@ -87,7 +87,7 @@ export function Login() {
                     </button>
                 </div>
             ) : (
-                <div>
+                <div className="authForm">
                     <h2>Email kód megerősítés</h2>
                     <input 
                         type="text" 

@@ -35,7 +35,7 @@ export function Users() {
     }, []);
 
     return (
-        <div>
+        <div className="container">
             <Navbar />
             <div>
                 <h2>Users</h2>
@@ -43,7 +43,7 @@ export function Users() {
                 {selectedUser !== null ? (
                     <UserDetails userId={selectedUser} onClose={closeUserDetails} />
                 ) : (
-                    <p>Nincs kiválasztott felhasználó</p>
+                    null
                 )}
             </div>
         </div>
