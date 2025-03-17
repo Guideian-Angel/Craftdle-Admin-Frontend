@@ -35,15 +35,15 @@ export function Users() {
     }, []);
 
     return (
-        <div>
+        <div className="container">
             <Navbar />
-            <div className="p-4">
-                <h2 className="text-xl font-bold text-white mb-4">Users</h2>
+            <div>
+                <h2>Users</h2>
                 <Table columns={["Id", "Username", "Streak", "LastPlayed", "Rights"]} data={users} onRowClick={handleRowClick} />
                 {selectedUser !== null ? (
                     <UserDetails userId={selectedUser} onClose={closeUserDetails} />
                 ) : (
-                    <p className="text-white">Nincs kiválasztott felhasználó</p>
+                    null
                 )}
             </div>
         </div>

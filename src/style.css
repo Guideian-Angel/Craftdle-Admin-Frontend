@@ -1,0 +1,212 @@
+:root {
+    --DarkRed: #AA0000;
+    --Red: #FF5555;
+    --Gold: #FFAA00;
+    --Yellow: #FFFF55;
+    --DarkGreen: #00AA00;
+    --Green: #55FF55;
+    --Aqua: #55FFFF;
+    --DarkAqua: #00AAAA;
+    --DarkBlue: #0000AA;
+    --Blue: #5555FF;
+    --LightPurple: #FF55FF;
+    --DarkPurple: #AA00AA;
+    --White: #FFFFFF;
+    --Gray: #AAAAAA;
+    --DarkGray: #555555;
+    --Black: #000000;
+}
+
+/* ---- Landscape Devices ---- */
+
+@font-face {
+    font-family: MinecraftRegular;
+    src: url("assets/minecraft-font/MinecraftRegular.otf");
+}
+
+@font-face {
+    font-family: MinecraftItalic;
+    src: url("assets/minecraft-font/MinecraftItalic.otf");
+}
+
+* {
+    font-family: MinecraftRegular;
+    user-select: none;
+}
+
+/* --- Scrollbar --- */
+
+::-webkit-scrollbar {
+    width: 8vmin;
+    max-width: 25px;
+    height: 8vmin;
+    max-height: 25px;
+}
+
+::-webkit-scrollbar-track {
+    border-top: 2px solid rgb(51, 50, 50);
+    border-right: 2px solid rgb(255, 254, 254);
+    border-bottom: 2px solid rgb(254, 255, 255);
+    border-left: 2px solid rgb(57, 56, 56);
+    background-color: rgb(138, 139, 139);
+}
+
+::-webkit-scrollbar-thumb {
+    border-top: 2px solid rgb(254, 255, 255);
+    border-right: 2px solid rgb(57, 56, 56);
+    border-bottom: 2px solid rgb(51, 50, 50);
+    border-left: 2px solid rgb(255, 254, 254);
+    background-color: #C6C6C6;
+    background-image: url("./assets/imgs/scroller.png");
+    background-size: contain;
+}
+
+@media (pointer:coarse) {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+html, body, #root{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--White);
+    background-color: rgb(194, 195, 195);
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.authForm{
+    background-color: rgb(38, 38, 38);
+    padding: 20px;
+    gap: 20px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s !important;
+}
+
+.authForm input {
+    background-color: rgb(19, 19, 19);
+    color: var(--White);
+    border: solid 3px transparent;
+    padding: 5px;
+}
+
+.authForm input:focus {
+    border: rgb(81, 81, 81) solid 3px;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    background-color: rgb(59, 132, 39);
+    border-top: 1vmin solid rgb(101, 157, 80);
+    border-right: 1vmin solid rgb(28, 63, 19);
+    border-bottom: 1vmin solid rgb(22, 79, 14);
+    border-left: 1vmin solid rgb(66, 115, 52);
+    color: rgb(219, 219, 219);
+}
+
+button:hover {
+    background-color: rgb(53, 113, 36);
+    border-top: 1vmin solid rgb(93, 144, 74);
+    border-right: 1vmin solid rgb(25, 56, 17);
+    border-bottom: 1vmin solid rgb(19, 71, 13);
+    border-left: 1vmin solid rgb(54, 95, 43);
+}
+
+.container {
+    height: 100dvh;
+    width: 100dvw;
+    position: relative;
+    background-color: rgb(56, 56, 56);
+    display: grid;
+    grid-template-rows: min-content auto;
+}
+
+#navbar > ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: rgb(38, 38, 38);
+    list-style: none;
+    margin: 0;
+}
+
+#navbar > ul > li > a{
+    color: var(--Green);
+    text-decoration: none;
+}
+
+.container > div{
+    padding: 20px;
+    overflow: auto;
+}
+
+.container table{
+    border-collapse: collapse;
+    border: black 3px solid;
+    margin: auto;
+    background-color: rgb(32, 32, 32);
+}
+
+.container table th, .container table td{
+    border: black 3px solid;
+    padding: 10px;
+    text-align: center;
+    width: min-content;
+}
+
+#userDetails{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(38, 38, 38);
+    padding: 20px;
+    border: black 3px solid;
+    border-radius: 20px;
+}
+
+#userDetails > div{
+    width: 70dvw;
+    height: 70dvh;
+    overflow: auto;
+}
+
+#statistics{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "basicStats gameSolveRateStats"
+    "gamesByGamemodeStats gamesByGamemodeStats"
+    "registrationStats registrationStats";
+}
+
+#basicStats{
+    grid-area: basicStats;
+}
+
+#solvedVsUnsolved{
+    grid-area: gameSolveRateStats;
+}
+
+#playedGamemodes{
+    grid-area: gamesByGamemodeStats;
+}
+
+#registrations{
+    grid-area: registrationStats;
+}

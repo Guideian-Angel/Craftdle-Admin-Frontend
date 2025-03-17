@@ -65,42 +65,37 @@ export function Login() {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen text-white">
+        <div>
             {step === 1 ? (
-                <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-96">
-                    <h2 className="text-xl font-bold mb-4">Bejelentkezés</h2>
+                <div className="authForm">
+                    <h2>Bejelentkezés</h2>
                     <input 
-                        className="w-full p-2 mb-2 bg-gray-700 border-none rounded" 
                         type="text" placeholder="Email" 
                         value={email} 
                         onChange={(e) => setEmail(e.target.value)} 
                     />
                     <input 
-                        className="w-full p-2 mb-2 bg-gray-700 border-none rounded" 
                         type="password" 
                         placeholder="Jelszó" 
                         value={password} 
                         onChange={(e) => setPassword(e.target.value)} 
                     />
                     <button 
-                        className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 rounded" 
                         onClick={handleLogin}
                     >
                         Belépés
                     </button>
                 </div>
             ) : (
-                <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-96">
-                    <h2 className="text-xl font-bold mb-4">Email kód megerősítés</h2>
+                <div className="authForm">
+                    <h2>Email kód megerősítés</h2>
                     <input 
-                        className="w-full p-2 mb-2 bg-gray-700 border-none rounded" 
                         type="text" 
                         placeholder="Kód" 
                         value={code} 
                         onChange={(e) => setCode(e.target.value)} 
                     />
                     <button 
-                        className="w-full bg-green-500 hover:bg-green-600 text-white p-2 rounded" 
                         onClick={handleVerify}
                     >
                         Kód ellenőrzése
