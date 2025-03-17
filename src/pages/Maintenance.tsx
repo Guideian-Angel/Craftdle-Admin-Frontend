@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Table } from "../components/table";
 import { Navbar } from "../components/Navbar";
+import { MaintenanceForm } from "../components/MaintenanceForm";
 
 const API_BASE_URL = import.meta.env.VITE_SERVER_BASE_URL;
 
@@ -27,10 +28,8 @@ export function Maintenance() {
             <Navbar />
             <div className="p-4">
                 <h2 className="text-xl font-bold text-white mb-4">Maintenance</h2>
-                <Table
-                    columns={["Id", "Start", "End", "User"]}
-                    data={maintenance}
-                />
+                <MaintenanceForm onMaintenanceAdded={setMaintenance} />
+                <Table columns={["Id", "Start", "End", "User"]} data={maintenance} />
             </div>
         </div>
     );
