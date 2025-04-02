@@ -17,23 +17,12 @@ export function Table({ columns, data, onRowClick }: TableProps) {
                 </thead>
                 <tbody>
                     {data.map((row, rowIndex) => (
-                        <tr 
-                            key={rowIndex}  
-                            onClick={() => onRowClick ? onRowClick(row) : null}
-                        >
+                        <tr key={rowIndex} onClick={() => onRowClick ? onRowClick(row) : null}>
                             {columns.map((col, colIndex) => {
-                                const key = col.toLowerCase(); // 🔹 Kulcs kisbetűsítése, hogy egyezzen az objektummal
+                                const key = col.toLowerCase();
                                 return (
                                     <td key={colIndex}>
-                                        {typeof row[key] === "string" || typeof row[key] === "number"
-                                            ? row[key] // 🔹 Normál szöveg vagy szám
-                                            : Array.isArray(row[key]) // 🔹 Ha tömb (pl. rights), join-nal stringgé alakítjuk
-                                                ? row[key].length > 0 
-                                                    ? row[key].join(", ") 
-                                                    : "None"
-                                                : row[key] !== null 
-                                                    ? row[key] // 🔹 JSX elem, pl. Modify oszlop
-                                                    : ""}
+                                        {key === "actions" ? row["Actions"] : row[key]}
                                     </td>
                                 );
                             })}
