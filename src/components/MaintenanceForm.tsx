@@ -37,9 +37,6 @@ export function MaintenanceForm({ onMaintenanceAdded, editing, setEditing }: Mai
             const method = editing ? "PATCH" : "POST";
             const url = editing ? `${API_BASE_URL}/maintenance/${editing.id}` : `${API_BASE_URL}/maintenance`;
 
-            console.log("start", start);
-            console.log("end", end);
-
             const res = await fetch(url, {
                 method,
                 headers: {
