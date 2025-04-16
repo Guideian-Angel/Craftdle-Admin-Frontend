@@ -11,9 +11,19 @@ interface MaintenanceFormProps {
 
 function toLocalDatetimeInputValue(dateString: string): string {
     const date = new Date(dateString);
-    const offsetDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
-    return offsetDate.toISOString().slice(0, 16);
+    const local = new Date(date.getTime());
+    return local.toISOString().slice(0, 16);
 }
+
+function localDatetimeToUTCISOString(datetimeLocal: string): string {
+    const [datePart, timePart] = datetimeLocal.split("T");
+    const [year, month, day] = datePart.split("-").map(Number);
+    const [hour, minute] = timePart.split(":").map(Number);
+
+    const utcDate = new Date(Date.UTC(year, month - 1, day, hour, minute));
+    return utcDate.toISOString();
+}
+
 
 export function MaintenanceForm({ onMaintenanceAdded, editing, setEditing }: MaintenanceFormProps) {
     const [start, setStart] = useState("");
@@ -44,8 +54,8 @@ export function MaintenanceForm({ onMaintenanceAdded, editing, setEditing }: Mai
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    start: start,
-                    end: end,
+                    start: localDatetimeToUTCISOString(start),
+                    end: localDatetimeToUTCISOString(end),
                 }),
             });
             if (!res.ok) throw new Error("Failed to save maintenance");

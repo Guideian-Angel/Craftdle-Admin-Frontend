@@ -8,7 +8,7 @@ const API_BASE_URL = import.meta.env.VITE_SERVER_BASE_URL;
 
 function toLocalDatetimeInputValue(dateString: string): string {
     const date = new Date(dateString);
-    const offsetDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+    const offsetDate = new Date(date.getTime());
     return offsetDate.toISOString().slice(0, 16);
 }
 
