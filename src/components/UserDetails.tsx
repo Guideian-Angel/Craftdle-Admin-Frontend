@@ -28,8 +28,6 @@ export function UserDetails({ userId, onClose }: UserDetailsProps) {
             .catch((error) => console.error("Error:", error));
     }, [userId]);
 
-    console.log(userData)
-
     return userData && !userData.error && (
         <div id="userDetails">
             <button onClick={onClose}>✖</button>
