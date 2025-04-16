@@ -9,6 +9,12 @@ interface MaintenanceFormProps {
     setEditing: React.Dispatch<React.SetStateAction<MaintenanceItem | null>>;
 }
 
+function toLocalDatetimeInputValue(dateString: string): string {
+    const date = new Date(dateString);
+    const offsetDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+    return offsetDate.toISOString().slice(0, 16);
+}
+
 export function MaintenanceForm({ onMaintenanceAdded, editing, setEditing }: MaintenanceFormProps) {
     const [start, setStart] = useState("");
     const [end, setEnd] = useState("");
@@ -17,8 +23,8 @@ export function MaintenanceForm({ onMaintenanceAdded, editing, setEditing }: Mai
 
     useEffect(() => {
         if (editing) {
-            setStart(editing.start);
-            setEnd(editing.end);
+            setStart(toLocalDatetimeInputValue(editing.start));
+            setEnd(toLocalDatetimeInputValue(editing.end));
         }
     }, [editing]);
 
