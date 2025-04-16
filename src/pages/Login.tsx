@@ -45,8 +45,6 @@ export function Login() {
             console.log("Verify response:", data);
 
             if (data.adminVerification?.verified) {
-                alert("Sikeres bejelentkezés!");
-
                 // 🔹 User adatokat mentjük sessionStorage-be
                 sessionStorage.setItem("adminData", JSON.stringify({
                     username: data.username,

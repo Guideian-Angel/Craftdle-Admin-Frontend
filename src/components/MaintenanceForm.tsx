@@ -38,8 +38,8 @@ export function MaintenanceForm({ onMaintenanceAdded, editing, setEditing }: Mai
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    start: new Date(start).toISOString(),
-                    end: new Date(end).toISOString(),
+                    start: start,
+                    end: end,
                 }),
             });
             if (!res.ok) throw new Error("Failed to save maintenance");
