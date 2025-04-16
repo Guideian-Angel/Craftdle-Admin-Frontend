@@ -1,8 +1,8 @@
-# Maintenance Frontend
+# Admin Frontend
 
 ## Overview
 
-The **Maintenance Frontend** is a web-based admin interface for managing maintenance periods. It allows authorized users to **create**, **edit**, and **delete** maintenance entries. The application communicates with a backend server through **RESTful API calls**.
+The **Admin Frontend** is a web-based admin interface for managing maintenance periods, users, admins and statistics. It allows authorized users to **create**, **edit**, and **delete** maintenance entries, look at specified user/overall statistics and edit admin rigths. The application communicates with a backend server through **RESTful API calls**.
 
 ## Technologies Used
 
@@ -44,30 +44,12 @@ npm run dev
 The application will be accessible at:  
 [http://localhost:5173](http://localhost:5173)
 
-### 4. Build and Preview (Production Mode)
-
-To create a production build:
-
-```sh
-npm run build
-```
-
-To preview the production build locally:
-
-```sh
-npm run preview
-```
-
----
-
 ## Available Scripts
 
 | Command            | Description                          |
 |--------------------|--------------------------------------|
 | `npm run dev`      | Starts the development server        |
 | `npm run build`    | Builds the application for production|
-| `npm run preview`  | Previews the production build locally|
-| `npm run lint`     | (Optional) Lints the codebase        |
 
 ---
 
