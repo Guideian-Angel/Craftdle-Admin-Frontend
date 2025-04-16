@@ -8,8 +8,7 @@ The **Admin Frontend** is a web-based admin interface for managing maintenance p
 
 - **React.js** – JavaScript library for building user interfaces  
 - **TypeScript** – Typed superset of JavaScript for safer development  
-- **Vite** – Fast and modern frontend build tool  
-- **Tailwind CSS** – Utility-first CSS framework for styling  
+- **Vite** – Fast and modern frontend build tool   
 
 ---
 
